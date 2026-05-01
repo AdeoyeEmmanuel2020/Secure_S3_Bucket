@@ -981,24 +981,24 @@ Team training materials
 ------
 ## Key Learnings & Insights
 ### Technical Insights**
-**1. Defense-in-Depth is Non-Negotiable**
-Single security control = single point of failure. This architecture proved that multiple overlapping controls caught configuration errors and prevented incidents that would have bypassed any single control.
+**1. Defense-in-Depth is Non-Negotiable** <br>
+Single security control = single point of failure. This architecture proved that multiple overlapping controls caught configuration errors and prevented incidents that would have bypassed any single control. <br>
 **Example:** During testing, attempted to make bucket public via ACL (accidentally). Public access block prevented it, even though bucket policy would have allowed.
 
-**2. Infrastructure as Code Transforms Operations**
-Manual S3 configuration took 2-3 hours with 15-20% error rate. Terraform reduced this to < 2 minutes with 0% errors. More importantly: configuration became reviewable, testable, version-controlled.
+**2. Infrastructure as Code Transforms Operations** <br>
+Manual S3 configuration took 2-3 hours with 15-20% error rate. Terraform reduced this to < 2 minutes with 0% errors. More importantly: configuration became reviewable, testable, version-controlled. <br>
 **Lesson:** Time investment in IaC pays back within first week of use.
 
-**3. Compliance Requires Proactive Design**
-Attempting to retrofit security controls for compliance is 10x harder than designing them in from day one. Mapping controls to frameworks (SOC 2, HIPAA, etc.) during architecture phase saved weeks during audit.
+**3. Compliance Requires Proactive Design** <br>
+Attempting to retrofit security controls for compliance is 10x harder than designing them in from day one. Mapping controls to frameworks (SOC 2, HIPAA, etc.) during architecture phase saved weeks during audit. <br>
 **Lesson:** Know your compliance requirements before writing the first line of code.
 
-**4. Lifecycle Policies are Often Overlooked**
-60% cost reduction came purely from lifecycle management—a feature many organizations forget to implement. Old data accumulates silently, driving costs up month after month.
+**4. Lifecycle Policies are Often Overlooked** <br>
+60% cost reduction came purely from lifecycle management—a feature many organizations forget to implement. Old data accumulates silently, driving costs up month after month. <br>
 **Lesson:** Cost optimization should be part of initial architecture, not a later "cleanup" project.
 
-**5. Separate Log Buckets Simplify Compliance**
-Storing logs in the same bucket as data creates circular dependencies and complicates access control. Separate bucket meant auditors could access logs without seeing production data.
+**5. Separate Log Buckets Simplify Compliance** <br>
+Storing logs in the same bucket as data creates circular dependencies and complicates access control. Separate bucket meant auditors could access logs without seeing production data. <br>
 **Lesson:** Audit data isolation = faster audits and better security.
 
 **Architecture Lessons**
@@ -1040,49 +1040,3 @@ Security Controls:           6 layers
 Compliance Frameworks:       4 (SOC 2, HIPAA, PCI-DSS, ISO 27001)
 Cost (monthly):              $0.50 - $2.00 (within free tier for testing)
 ```
-----
-## Lessons Learned
-
-Reflections on what worked, what didn't, and key takeaways
-
-**Technical Insights**
- **1. Defense-in-Depth is Non-Negotiable**
-**Observation:** Single security control = single point of failure.
-
-**Evidence:** During testing, developer attempted to make bucket public via ACL. Public Access Block prevented it, even though bucket policy alone might not have caught ACL-based access.
-
-**Lesson:** Never rely on single security mechanism. Each of 6 layers caught different misconfigurations.
-
-**Quantified Impact:** Prevented 3 accidental exposures + 1 ransomware incident in 18 months.
-
-**2. Infrastructure as Code Transforms Operations**
-**Before IaC:**
-- Deployment: 2-3 hours
-- Error rate: 15-20%
-- Documentation: Separate (often outdated)
-
-**After IaC:**
-- Deployment: <2 minutes (98% faster)
-- Error rate: 0%
-- Documentation: Code IS docs (always accurate)
-**Lesson:** Time investment in IaC (12 hours) pays back within first week.
-  
-**What Worked Well**
-1. Terraform modular design
-2. Comprehensive documentation
-3. Video demonstration
-4. Real-world scenarios
-
-**What Could Be Improved**
-1. Automated testing (currently manual)
-2. Terraform module extraction
-3. CloudWatch alarms
-4. Cost tracking dashboard
-
-**Recommendations for Others**
-1. Start with compliance requirements
-2. Use IaC from day one
-3. Document decisions (ADRs)
-4. Create video demos
-5. Test with real scenarios
-
