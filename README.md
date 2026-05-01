@@ -34,7 +34,7 @@
 - [Real-World Scenarios & Troubleshooting](#real-world-scenarios--troubleshooting)
 - [Validation & Testing](#validation--testing)
 - [Business Value Delivered](#business-value-delivered)
-- [Competencies Demonstrated](#competencies-demonstrated)
+- [Technical Leadership & Competencies](#technical-leadership--competencies)
 - [Project Artifacts](#project-artifacts)
 - [Lessons Learned](#lessons-learned)
 
