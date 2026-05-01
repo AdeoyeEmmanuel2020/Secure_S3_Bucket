@@ -458,9 +458,8 @@ aws sts get-caller-identity
 }
 
 ```
-----
-## Step-by-Step Deployment
-### Step 1: Clone Repository
+**Step-by-Step Deployment**
+**Step 1: Clone Repository**
 
 ```hcl
 {
@@ -487,7 +486,7 @@ variable "bucket_name" {
 }
 
 ```
-### Step 3: Initialize Terraform
+ **Step 3: Initialize Terraform**
 ```hcl
 terraform init
 
@@ -506,7 +505,7 @@ Initializing provider plugins...
 
 Terraform has been successfully initialized!
 ```
-### Step 4: Validate Configuration
+**Step 4: Validate Configuration**
 ```hcl
 terraform validate
 ```
@@ -514,7 +513,7 @@ terraform validate
 ```hcl
 Success! The configuration is valid.
 ```
-### Step 5: Review Execution Plan
+**Step 5: Review Execution Plan**
 ```hcl
 terraform plan
 ```
@@ -544,7 +543,7 @@ Plan: 8 to add, 0 to change, 0 to destroy.
  Bucket names are unique
  Region is correct
 
- ### Step 6: Deploy Infrastructure
+**Step 6: Deploy Infrastructure**
 
 ```hcl
 terraform apply
@@ -570,7 +569,7 @@ bucket_name = "my-secure-bucket-emmanuel-20250120"
 bucket_region = "us-east-1"
 log_bucket_name = "my-secure-bucket-emmanuel-20250120-logs"
 ```
-### Step 7: Verify in AWS Console
+**Step 7: Verify in AWS Console**
 Navigate to AWS S3 Console
 Locate your bucket
 **Properties tab:** Verify encryption, versioning
@@ -579,7 +578,7 @@ Locate your bucket
 
 ----
 ## Real-World Scenarios & Troubleshooting
-### Scenario 1: Accidental File Deletion
+ **Scenario 1: Accidental File Deletion**
 **Challenge:**
 User accidentally deleted critical production configuration file.
 
@@ -610,7 +609,7 @@ Incident response procedures
 **Key Learning:**
 Versioning saved 4 hours of manual reconfiguration and prevented production downtime.
 
-## Scenario 2: Attempted Unauthorized Public Access
+ **Scenario 2: Attempted Unauthorized Public Access**
 **Challenge:**
 Security scan detected attempt to make bucket public via bucket policy.
 
@@ -646,7 +645,7 @@ Understanding AWS security controls
 **Key Learning:**
 Defense-in-depth prevented security incident; multiple controls = resilience.
 
-### Scenario 3: Cost Spike Investigation
+ **Scenario 3: Cost Spike Investigation**
 **Challenge:**
 Monthly S3 bill increased 40% month-over-month.
 
@@ -689,7 +688,7 @@ Infrastructure debugging
 Key Learning:
 Always validate lifecycle policies with test objects before production deployment.
 
-### Scenario 4: Compliance Audit Request
+**Scenario 4: Compliance Audit Request**
 **Challenge**:
 SOC 2 auditor requested evidence of access logging for past 90 days.
 
@@ -728,7 +727,7 @@ Auditor communication
 Key Learning:
 Separate log bucket simplified audit process; auditor could verify logs were tamper-proof.
 
-### Scenario 5: Terraform State Corruption
+ **Scenario 5: Terraform State Corruption**
 **Challenge:**
 terraform apply failed with state lock error after teammate's interrupted deployment.
 
@@ -845,7 +844,7 @@ aws support describe-trusted-advisor-checks
 |Audit Prep Time|	8 hours (manual log aggregation)|	30 minutes (automated logs)|	94% reduction|
 |Recovery Time (data loss)|	Hours-days (no versioning)|	< 5 minutes (versioning)|	99% faster|
 
-### ROI Analysis
+ **ROI Analysis**
 **Initial Investment:**
 
 Architecture design: 8 hours
@@ -862,7 +861,7 @@ Payback Period: 1.4 months
 
 3-Year ROI: 2,520% ($45,160 savings / $1,800 investment)
 
-### Strategic Benefits
+ **Strategic Benefits**
 **Security Posture:**
 Zero data breach incidents since implementation
 100% compliance audit pass rate
@@ -982,7 +981,7 @@ Team training materials
 
 ------
 ## Key Learnings & Insights
-### Technical Insight
+**Technical Insight**
 **1. Defense-in-Depth is Non-Negotiable** <br>
 Single security control = single point of failure. This architecture proved that multiple overlapping controls caught configuration errors and prevented incidents that would have bypassed any single control. <br>
 **Example:** During testing, attempted to make bucket public via ACL (accidentally). Public access block prevented it, even though bucket policy would have allowed.
