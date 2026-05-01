@@ -878,7 +878,7 @@ Enabled $2M+ enterprise contract previously blocked on security
 
 -------
 ## Technical Leadership & Competencies
-Solution Architecture Competencies Demonstrated
+Solution Architecture Competencies Demonstrated <br>
 **1. Security Architecture Design**
 Defense-in-depth principle application
 Threat modeling and risk mitigation
