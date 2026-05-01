@@ -99,28 +99,6 @@ This project delivers a **production-ready S3 storage solution** addressing comm
 **Architecture Overview**
 <img width="700" height="400" alt="Architecture diagram" src="https://github.com/user-attachments/assets/cf254315-49b6-400c-a2fa-9a41269f7f1b" />
 
-**Data Flow Sequence**
-User Authentication
-└─ IAM validates credentials
-
-Request Initiation
-└─ Application sends HTTPS request to S3
-
-Security Layer Validation
-├─ Bucket policy checks: HTTPS? ✅
-├─ Public access block: Active? ✅
-└─ IAM permissions: Authorized? ✅
-
-Data Access
-├─ S3 serves object (encrypted)
-└─ Decryption handled transparently
-
-Audit Logging
-└─ Access details logged to separate bucket
-
-Lifecycle Management
-└─ Background: Archive old versions (scheduled)
-
 ---
 
 ## Security Features
@@ -1009,3 +987,9 @@ Security Controls:           6 layers
 Compliance Frameworks:       4 (SOC 2, HIPAA, PCI-DSS, ISO 27001)
 Cost (monthly):              $0.50 - $2.00 (within free tier for testing)
 ```
+## **👤** Author
+**Adeoye Emmanuel** - AWS Certified Solutions Architect | AWS Security Solutions Architect | DevSecOps Engineer
+
+**Email:** Emmanuelofgrace@gmail.com
+
+💼 LinkedIn: www.linkedin.com/in/emmanuel-adeoye-29187bb7
