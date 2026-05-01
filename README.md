@@ -29,7 +29,7 @@
 - [Solution Architecture](#solution-architecture)
 - [Security Features](#security-features)
 - [Technical Stack](#technical-stack)
-- [Key Architecture Decisions](#architecture-decisions)
+- [Key Architecture Decisions](#key-architecture-decisions)
 - [Implementation Guide](#implementation-guide)
 - [Real-World Scenarios & Troubleshooting](#real-world-scenarios--troubleshooting)
 - [Validation & Testing](#validation--testing)
