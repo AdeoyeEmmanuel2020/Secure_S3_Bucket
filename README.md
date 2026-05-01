@@ -43,11 +43,9 @@
 ---
 
 ## Executive Summary
-
 This project delivers a **production-ready S3 storage solution** addressing common cloud security vulnerabilities that have led to high-profile data breaches. The architecture implements **six defensive security layers** using infrastructure as code, ensuring consistency, auditability, and compliance with industry frameworks (SOC 2, HIPAA, PCI-DSS, ISO 27001).
 
-### Quick Stats
-
+**Quick Stats**
 | Metric | Value |
 |--------|-------|
 | **Security Controls** | 6 layers |
@@ -60,9 +58,7 @@ This project delivers a **production-ready S3 storage solution** addressing comm
 ---
 
 ## Business Challenge
-
-### The Problem
-
+**The Problem**
 **Context:** S3 misconfiguration is the leading cause of cloud data breaches, with over 70% of organizations experiencing at least one accidental data exposure incident.
 
 **Real-World Impact:**
@@ -77,8 +73,7 @@ This project delivers a **production-ready S3 storage solution** addressing comm
 - Missing versioning (no rollback capability)
 - Uncontrolled data retention costs
 
-### Business Requirements
-
+ **Business Requirements**
 **Security:**
 - Prevent accidental public exposure
 - Encrypt all data (rest + transit)
@@ -100,13 +95,11 @@ This project delivers a **production-ready S3 storage solution** addressing comm
 ---
 
 ## Solution Architecture
-
-### High-Level Architecture
-## **Architecture Overview**
+ **High-Level Architecture**
+**Architecture Overview**
 <img width="700" height="400" alt="Architecture diagram" src="https://github.com/user-attachments/assets/cf254315-49b6-400c-a2fa-9a41269f7f1b" />
 
-
-### Data Flow Sequence
+**Data Flow Sequence**
 User Authentication
 └─ IAM validates credentials
 
@@ -131,10 +124,9 @@ Lifecycle Management
 ---
 
 ## Security Features
+**Defense-in-Depth Architecture**
 
-### Defense-in-Depth Architecture
-
-#### 1. **Public Access Blocking** (Preventive Control)
+**1. Public Access Blocking (Preventive Control)**
 
 **Purpose:** Eliminate accidental public data exposure
 
@@ -156,10 +148,7 @@ AWS-recommended baseline for all non-public buckets. <br>
 **Compliance**: SOC 2 (CC6.1), ISO 27001 (A.13.1.3)
 
 
-
-
-#### **2. Encryption at Rest (Data Protection)**
-
+**2. Encryption at Rest (Data Protection)**
 **Purpose:** Protect data confidentiality on AWS infrastructure
 
 **Implementation:**
@@ -183,9 +172,7 @@ Protection against physical server theft/decommissioning
 Automatic key rotation (AWS-managed). <br>
 **Compliance**: HIPAA (§164.312(a)(2)(iv)), PCI-DSS (Requirement 3.4), SOC 2 (CC6.7)
 
-
-#### **3. Versioning (Data Integrity & Recovery)**
-
+**3. Versioning (Data Integrity & Recovery)**
 **Purpose:** Protection against data loss, corruption, and ransomware
 
 **Implementation:**
@@ -198,7 +185,6 @@ resource "aws_s3_bucket_versioning" "secure_bucket" {
 }
 
 ```
-
 **Security Benefit:** <br>
 Complete version history of all objects
 Rollback capability (undo deletions/modifications)
@@ -207,9 +193,7 @@ Accidental deletion recovery
  <br>
 **Compliance**: SOC 2 (CC7.1), ISO 27001 (A.12.3.1)
 
-
-#### **4. Access Logging (Detective Control)**
-
+**4. Access Logging (Detective Control)**
 **Purpose:** Complete audit trail for security investigation and compliance
 
 **Implementation:**
@@ -238,8 +222,7 @@ Anomaly detection (unusual access patterns)
  <br>
 **Compliance**: SOC 2 (CC7.2), PCI-DSS (Requirement 10), HIPAA (§164.312(b))
 
-#### **5. Lifecycle Policies (Cost & Data Management)**
-
+**5. Lifecycle Policies (Cost & Data Management)**
 **Purpose:** Automated data retention and cost optimization
 
 **Implementation:**
@@ -280,8 +263,7 @@ Reduced attack surface (less old data)
  
 **Compliance**: ISO 27001 (A.11.2.7 - Data disposal)
 
-#### **6. HTTPS Enforcement (Encryption in Transit)**
-
+**6. HTTPS Enforcement (Encryption in Transit)**
 **Purpose:** Prevent man-in-the-middle attacks and data interception
 
 **Implementation:**
@@ -319,7 +301,7 @@ Blocks HTTP requests (100% HTTPS requirement)
 
 -----
 ## Technical Stack
-### Infrastructure as Code
+**Infrastructure as Code**
 |Component | Technology |	Version	| Purpose|
 |----------|------------|--------- | -------|
 |IaC Tool	| Terraform	| >= 1.0 |	Infrastructure automation|
@@ -327,7 +309,7 @@ Blocks HTTP requests (100% HTTPS requirement)
 |Language |	HCL	| 2.0 |	Configuration syntax |
 |State Management	| Local / S3 Backend |	-	| State storage|
 
-### AWS Services
+**AWS Services**
 |Service | Purpose	| Configuration |
 |--------|----------|---------------|
 | S3 |	Object storage |	Standard class, multi-AZ|
@@ -335,16 +317,16 @@ Blocks HTTP requests (100% HTTPS requirement)
 | KMS	| Encryption keys |	AWS-managed (optional: CMK)|
 | CloudWatch |	Monitoring |	Access logs integration |
 
-### **Development Tools**
+**Development Tools**
 IDE: VS Code with Terraform extension
 Version Control: Git + GitHub
 Testing: Terraform validate, plan
 Documentation: Markdown, architecture diagrams
 
 ----
-## **Key Architecture Decisions**
-### **Decision Log**
-**Decision 1**: Separate Log Bucket
+## Key Architecture Decisions
+**Decision Log**
+**Decision 1: Separate Log Bucket**
 **Context**: Where to store S3 access logs?
 
 **Options Considered:**
@@ -364,8 +346,7 @@ Better security isolation
 Easier compliance
 Slight additional cost (~$0.01/month)
 
-
-### **Decision 2: AWS-Managed vs Customer-Managed Keys (CMK)**
+**Decision 2: AWS-Managed vs Customer-Managed Keys (CMK)**
 **Context:** What encryption key management strategy?
 
 **Options Considered:**
@@ -391,7 +372,7 @@ Cross-account bucket access
 Custom key rotation schedules
 Enhanced audit trails
 
-### **Decision 3: Lifecycle Policy Thresholds**
+**Decision 3: Lifecycle Policy Thresholds**
 **Context:** When to archive/delete old versions?
 
 **Analysis:**
@@ -416,15 +397,11 @@ HIPAA: May require 6 years
 GDPR: May require immediate deletion upon request
 Financial: May require 7 years
 
-
-### **Decision 4: Multi-AZ vs Single-AZ**
-
+**Decision 4: Multi-AZ vs Single-AZ**
 **Context:** S3 replication strategy
-
 **Decision:** S3 Standard (automatic multi-AZ)
 
 **Rationale:**
-
 S3 Standard automatically replicates across ≥3 AZs
 99.999999999% (11 9's) durability
 No additional configuration needed
@@ -433,15 +410,14 @@ Meets high-availability requirements
 -----
 ## Implementation Guide
 **Prerequisites**
-**Required:**
 
+**Required:**
 AWS Account with S3 full access
 Terraform >= 1.0 installed
 AWS CLI configured
 Basic understanding of S3 and Terraform
 
 **Verification:**
-
 ```hcl
 {
 # Check Terraform installation
@@ -468,7 +444,7 @@ cd security-architecture-portfolio/projects/1-secure-s3
 }
 
 ```
-### Step 2: Customise Configuration
+**Step 2: Customise Configuration**
 **variables.tf:**
 
 ```hcl
@@ -553,7 +529,6 @@ Type **yes** when prompted.
 **Deployment time:** ~45-60 seconds
 
 **Expected output:**
-
 ```hcl
 aws_s3_bucket.log_bucket: Creating...
 aws_s3_bucket.secure_bucket: Creating...
@@ -563,7 +538,6 @@ aws_s3_bucket_public_access_block.log_bucket: Creating...
 Apply complete! Resources: 9 added, 0 changed, 0 destroyed.
 
 Outputs:
-
 bucket_arn = "arn:aws:s3:::my-secure-bucket-emmanuel-20250120"
 bucket_name = "my-secure-bucket-emmanuel-20250120"
 bucket_region = "us-east-1"
@@ -624,13 +598,11 @@ aws s3api get-public-access-block \
   --bucket my-secure-bucket-prod
 ```
 **Resolution Steps:**
-
 ```hcl
 # Public access block prevented the change automatically
 # No action needed - security control worked as designed
 ```
 **Evidence:**
-
 ```hcl
 {
   "Error": "AccessDenied",
@@ -664,7 +636,6 @@ aws s3api get-bucket-lifecycle-configuration \
 Lifecycle policy not transitioning old versions to Glacier (misconfigured rule).
 
 **Resolution Steps:**
-
 ```hcl
 # 1. Identify objects not transitioning
 # Found rule had incorrect filter
@@ -743,7 +714,6 @@ Lock Info:
   Created:   2026-05-01 15:30:00 UTC
 ```
 **Diagnostic Process:**
-
 ```hcl
 # 1. Confirm teammate is not actively running Terraform
 # (Call/message teammate)
@@ -815,7 +785,6 @@ ISO 27001 information security controls implemented
 ```
 **Security Scanning**
 **Infrastructure Security:**
-
  ```hcl
 # Scan Terraform code with tfsec
 tfsec .
@@ -846,7 +815,6 @@ aws support describe-trusted-advisor-checks
 
  **ROI Analysis**
 **Initial Investment:**
-
 Architecture design: 8 hours
 Terraform development: 12 hours
 Testing & validation: 4 hours
