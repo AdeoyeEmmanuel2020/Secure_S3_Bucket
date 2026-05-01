@@ -31,7 +31,7 @@
 - [Technical Stack](#technical-stack)
 - [Key Architecture Decisions](#architecture-decisions)
 - [Implementation Guide](#implementation-guide)
-- [Real-World Scenarios & Troubleshooting](#real-world-scenarios)
+- [Real-World Scenarios & Troubleshooting](#real-world-scenarios--troubleshooting)
 - [Validation & Testing](#validation--testing)
 - [Business Value Delivered](#business-value-delivered)
 - [Competencies Demonstrated](#competencies-demonstrated)
