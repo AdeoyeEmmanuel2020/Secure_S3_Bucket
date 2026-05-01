@@ -431,7 +431,7 @@ No additional configuration needed
 Meets high-availability requirements
 
 -----
-### Implementation Guide
+## Implementation Guide
 **Prerequisites**
 **Required:**
 
