@@ -29,9 +29,9 @@
 - [Solution Architecture](#solution-architecture)
 - [Security Features](#security-features)
 - [Technical Stack](#technical-stack)
-- [Architecture Decisions](#architecture-decisions)
+- [Key Architecture Decisions](#architecture-decisions)
 - [Implementation Guide](#implementation-guide)
-- [Real-World Scenarios](#real-world-scenarios)
+- [Real-World Scenarios & Troubleshooting](#real-world-scenarios)
 - [Validation & Testing](#validation--testing)
 - [Business Value Delivered](#business-value-delivered)
 - [Competencies Demonstrated](#competencies-demonstrated)
@@ -316,7 +316,7 @@ Blocks HTTP requests (100% HTTPS requirement)
 **Compliance**: PCI-DSS (Requirement 4.1), SOC 2 (CC6.7)
 
 -----
-## 🛠 Technical Stack
+## Technical Stack
 ### Infrastructure as Code
 |Component | Technology |	Version	| Purpose|
 |----------|------------|--------- | -------|
@@ -429,7 +429,7 @@ No additional configuration needed
 Meets high-availability requirements
 
 -----
-### 📋 Implementation Guide
+### Implementation Guide
 **Prerequisites**
 **Required:**
 
