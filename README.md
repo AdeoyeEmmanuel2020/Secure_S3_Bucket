@@ -71,11 +71,11 @@ This project delivers a **production-ready S3 storage solution** addressing comm
 - **GoDaddy (2020):** 28K customer records exposed
 
 **Common Vulnerabilities:**
-- ❌ Public buckets exposing sensitive data
-- ❌ Unencrypted data at rest
-- ❌ No audit trail for access monitoring
-- ❌ Missing versioning (no rollback capability)
-- ❌ Uncontrolled data retention costs
+- Public buckets exposing sensitive data
+- Unencrypted data at rest
+- No audit trail for access monitoring
+- Missing versioning (no rollback capability)
+- Uncontrolled data retention costs
 
 ### Business Requirements
 
