@@ -1075,18 +1075,13 @@ Cost (monthly):              $0.50 - $2.00 (within free tier for testing)
 **Lesson:** Time investment in IaC (12 hours) pays back within first week.
 
 ---
-## LESSONS LEARNED
+## Lessons Learned
 
-# Lessons Learned & Key Insights
+Reflections on what worked, what didn't, and key takeaways
 
-> Reflections on what worked, what didn't, and key takeaways
+### Technical Insights
 
----
-
-## Technical Insights
-
-### 1. Defense-in-Depth is Non-Negotiable
-
+ **1. Defense-in-Depth is Non-Negotiable**
 **Observation:** Single security control = single point of failure.
 
 **Evidence:** During testing, developer attempted to make bucket public via ACL. Public Access Block prevented it, even though bucket policy alone might not have caught ACL-based access.
@@ -1095,7 +1090,7 @@ Cost (monthly):              $0.50 - $2.00 (within free tier for testing)
 
 **Quantified Impact:** Prevented 3 accidental exposures + 1 ransomware incident in 18 months.
 
-### 2. Infrastructure as Code Transforms Operations
+**2. Infrastructure as Code Transforms Operations**
 **Before IaC:**
 - Deployment: 2-3 hours
 - Error rate: 15-20%
@@ -1105,21 +1100,21 @@ Cost (monthly):              $0.50 - $2.00 (within free tier for testing)
 - Deployment: <2 minutes (98% faster)
 - Error rate: 0%
 - Documentation: Code IS docs (always accurate)
-
 **Lesson:** Time investment in IaC (12 hours) pays back within first week.
-## What Worked Well
+  
+**What Worked Well**
 1. Terraform modular design
 2. Comprehensive documentation
 3. Video demonstration
 4. Real-world scenarios
 
-## What Could Be Improved
+**What Could Be Improved**
 1. Automated testing (currently manual)
 2. Terraform module extraction
 3. CloudWatch alarms
 4. Cost tracking dashboard
 
-## Recommendations for Others
+**Recommendations for Others**
 1. Start with compliance requirements
 2. Use IaC from day one
 3. Document decisions (ADRs)
