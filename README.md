@@ -36,7 +36,9 @@
 - [Business Value Delivered](#business-value-delivered)
 - [Technical Leadership & Competencies](#technical-leadership--competencies)
 - [Project Artifacts](#project-artifacts)
-- [Lessons Learned](#lessons-learned)
+- [Key Learnings & Insights](#key-learning--insights)
+- [Implementation Metrics](#implementation-metrics)
+
 
 ---
 
@@ -980,7 +982,7 @@ Team training materials
 
 ------
 ## Key Learnings & Insights
-### Technical Insights**
+### Technical Insight
 **1. Defense-in-Depth is Non-Negotiable** <br>
 Single security control = single point of failure. This architecture proved that multiple overlapping controls caught configuration errors and prevented incidents that would have bypassed any single control. <br>
 **Example:** During testing, attempted to make bucket public via ACL (accidentally). Public access block prevented it, even though bucket policy would have allowed.
