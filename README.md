@@ -177,7 +177,7 @@ resource "aws_s3_bucket_versioning" "secure_bucket" {
  **Use Cases:**
 - Ransomware attack: Restore to pre-infection state
 - Accidental deletion: Recover deleted objects
-- Audit requirements: Show data change history
+- Audit requirements: Show data change history <br>
 **Compliance**: SOC 2 (CC7.1), ISO 27001 (A.12.3.1)
 
 **4. Access Logging (Detective Control)**
@@ -207,7 +207,7 @@ resource "aws_s3_bucket_logging" "secure_bucket" {
 - Compliance audit evidence
 - Anomaly detection (unusual access patterns)
  <br>
-**Compliance**: SOC 2 (CC7.2), PCI-DSS (Requirement 10), HIPAA (§164.312(b))
+  **Compliance**: SOC 2 (CC7.2), PCI-DSS (Requirement 10), HIPAA (§164.312(b))
 
 **5. Lifecycle Policies (Cost & Data Management)**
 **Purpose:** Automated data retention and cost optimisation
