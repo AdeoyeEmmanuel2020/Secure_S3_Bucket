@@ -565,8 +565,8 @@ aws s3api delete-object \
 **Key Learning:**
 Versioning saved 4 hours of manual reconfiguration and prevented production downtime.
 
- **Scenario 2: Attempted Unauthorized Public Access**
-**Challenge:**
+ **Scenario 2: Attempted Unauthorized Public Access** <br>
+**Challenge:** <br>
 Security scan detected attempt to make bucket public via bucket policy.
 
 **Diagnostic Process:**
@@ -635,10 +635,10 @@ terraform apply
 Cost reduced by 35% within 60 days as old versions transitioned to Glacier.
 
 **Skills Demonstrated:**
-Cost optimization
-AWS billing analysis
-Infrastructure debugging
-Key Learning:
+- Cost optimization
+- AWS billing analysis
+- Infrastructure debugging <br>
+**Key Learning:**
 Always validate lifecycle policies with test objects before production deployment.
 
 **Scenario 4: Compliance Audit Request**
@@ -674,10 +674,10 @@ Terraform code demonstrating logging configuration
 Audit Result: Passed (no findings)
 
 **Skills Demonstrated:**
-Compliance knowledge
-Log analysis
-Auditor communication
-Key Learning:
+- Compliance knowledge
+- Log analysis
+- Auditor communication <br>
+**Key Learning:**
 Separate log bucket simplified audit process; auditor could verify logs were tamper-proof.
 
  **Scenario 5: Terraform State Corruption**
@@ -722,9 +722,9 @@ Established team convention: announce Terraform runs in Slack
 Implemented CI/CD pipeline for production deployments
 
 **Skills Demonstrated:**
-Terraform state management
-Team coordination
-Infrastructure workflow design
+- Terraform state management
+- Team coordination
+- Infrastructure workflow design
 
 **Key Learning:**
 Remote state with locking prevents 99% of state conflicts in team environments.
