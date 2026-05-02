@@ -307,55 +307,55 @@ resource "aws_s3_bucket_policy" "secure_bucket" {
 - **Documentation:** Markdown, architecture diagrams
 
 ----
-## Key Architecture Decisions
-**Decision Log**
-**Decision 1: Separate Log Bucket**
+#Key Architecture Decisions <br>
+**Decision Log**  <br>
+**Decision 1: Separate Log Bucket** <br>
 **Context**: Where to store S3 access logs?
 
 **Options Considered:**
-Same bucket (circular dependency risk)
-Separate bucket (recommended)
-CloudWatch Logs (additional cost)
-Decision: Separate bucket
+1. Same bucket (circular dependency risk)
+2. Separate bucket (recommended)
+3. CloudWatch Logs (additional cost) <br>
+**Decision:** Separate bucket
 
 **Rationale:**
-Prevents circular dependency
-Isolates audit data from application data
-Easier access control (read-only for auditors)
-Complies with SOC 2 requirement for log segregation
+- Prevents circular dependency
+- Isolates audit data from application data
+- Easier access control (read-only for auditors)
+- Complies with SOC 2 requirement for log segregation
 
 **Trade-offs:**
-Better security isolation
-Easier compliance
-Slight additional cost (~$0.01/month)
+- Better security isolation
+- Easier compliance
+- Slight additional cost (~$0.01/month)
 
-**Decision 2: AWS-Managed vs Customer-Managed Keys (CMK)**
-**Context:** What encryption key management strategy?
+**Decision 2: AWS-Managed vs Customer-Managed Keys (CMK)** <br>
+**Context:** What encryption key management strategy? <br>
 
 **Options Considered:**
-AWS-managed keys (SSE-S3)
-Customer-managed keys (SSE-KMS)
-Client-side encryption
-**Decision:** AWS-managed keys (with upgrade path to KMS)
+1. AWS-managed keys (SSE-S3)
+2. Customer-managed keys (SSE-KMS)
+3. Client-side encryption <br>
+**Decision:** AWS-managed keys (with upgrade path to KMS) <br>
 
 **Rationale:**
-Zero operational overhead
-Automatic key rotation
-Sufficient for most compliance requirements
-Can upgrade to KMS if needed
+- Zero operational overhead
+- Automatic key rotation
+- Sufficient for most compliance requirements
+- Can upgrade to KMS if needed
 
 **Trade-offs:**
-Simple, automatic
-No cost for encryption
-Less control over key rotation schedule
-Can't use for cross-account access
+- Simple, automatic
+- No cost for encryption
+- Less control over key rotation schedule
+- Can't use for cross-account access
 
 **Future Consideration:** Upgrade to KMS for:
-Cross-account bucket access
-Custom key rotation schedules
-Enhanced audit trails
+- Cross-account bucket access
+- Custom key rotation schedules
+- Enhanced audit trails
 
-**Decision 3: Lifecycle Policy Thresholds**
+**Decision 3: Lifecycle Policy Thresholds** <br>
 **Context:** When to archive/delete old versions?
 
 **Analysis:**
@@ -367,31 +367,30 @@ Enhanced audit trails
 |1 year+|	Very High|	None|	 Unnecessary cost|
 
 **Decision:**
-Transition to Glacier: 30 days
-Delete: 90 days
+- Transition to Glacier: 30 days
+- Delete: 90 days
 
 **Rationale:**
-30 days covers most "accidental change" recovery scenarios
-90 days meets typical compliance retention (SOC 2, PCI-DSS)
-Balances cost vs. recovery capability
+- 30 days covers most "accidental change" recovery scenarios
+- 90 days meets typical compliance retention (SOC 2, PCI-DSS)
+- Balances cost vs. recovery capability
 
-**Customization:** Adjustable per compliance framework:
-HIPAA: May require 6 years
-GDPR: May require immediate deletion upon request
-Financial: May require 7 years
+**Customisation:** Adjustable per compliance framework:
+- HIPAA: May require 6 years
+- GDPR: May require immediate deletion upon request
+- Financial: May require 7 years
 
-**Decision 4: Multi-AZ vs Single-AZ**
-**Context:** S3 replication strategy
-**Decision:** S3 Standard (automatic multi-AZ)
-
-**Rationale:**
-S3 Standard automatically replicates across ≥3 AZs
-99.999999999% (11 9's) durability
-No additional configuration needed
-Meets high-availability requirements
+**Decision 4: Multi-AZ vs Single-AZ** <br>
+**Context:** S3 replication strategy <br>
+**Decision:** S3 Standard (automatic multi-AZ) <br>
+**Rationale:** <br>
+- S3 Standard automatically replicates across ≥3 AZs
+- 99.999999999% (11 9's) durability
+- No additional configuration needed
+- Meets high-availability requirements
 
 -----
-## Implementation Guide
+# Implementation Guide
 **Prerequisites**
 
 **Required:**
