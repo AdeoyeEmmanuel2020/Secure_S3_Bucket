@@ -741,27 +741,28 @@ Remote state with locking prevents 99% of state conflicts in team environments.
 
 ----
 # Validation & Testing
-Architecture Review Checklist
+**Architecture Review Checklist**
+
 **Security Validation:**
-All six security controls are enabled and verified
-Public access blocked (tested via AWS CLI)
-Encryption at rest confirmed (console + API)
-Versioning enabled (tested with object upload/delete)
-Access logs are generating successfully
-Lifecycle policy active (verified rule status)
-HTTPS enforcement working (HTTP request denied)
+- All six security controls are enabled and verified
+- Public access blocked (tested via AWS CLI)
+- Encryption at rest confirmed (console + API)
+- Versioning enabled (tested with object upload/delete)
+- Access logs are generating successfully
+- Lifecycle policy active (verified rule status)
+- HTTPS enforcement working (HTTP request denied)
 
 **Compliance Verification:**
-SOC 2 controls mapped and documented
-HIPAA requirements met (encryption + logging)
-PCI-DSS data protection requirements satisfied
-ISO 27001 information security controls implemented
+- SOC 2 controls mapped and documented
+- HIPAA requirements met (encryption + logging)
+- PCI-DSS data protection requirements satisfied
+- ISO 27001 information security controls implemented
 
 **Operational Testing:**
- Deployment completes in < 2 minutes
- All Terraform outputs display correctly
- Infrastructure can be destroyed cleanly
- Configuration is idempotent (can re-apply safely)
+ - Deployment completes in < 2 minutes
+ - All Terraform outputs display correctly
+ - Infrastructure can be destroyed cleanly
+ - Configuration is idempotent (can re-apply safely)
 
  ```hcl
 # Run validation tests
