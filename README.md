@@ -120,9 +120,9 @@ resource "aws_s3_bucket_public_access_block" "secure_bucket" {
 ```
 
 **Security Benefit:** <br>
-Prevents 100% of accidental public exposure incidents
-Overrides user/application attempts to make bucket public
-AWS-recommended baseline for all non-public buckets. <br>
+- Prevents 100% of accidental public exposure incidents
+- Overrides user/application attempts to make bucket public
+- AWS-recommended baseline for all non-public buckets. <br>
 **Compliance**: SOC 2 (CC6.1), ISO 27001 (A.13.1.3)
 
 
@@ -212,7 +212,7 @@ resource "aws_s3_bucket_logging" "secure_bucket" {
 **Compliance**: SOC 2 (CC7.2), PCI-DSS (Requirement 10), HIPAA (§164.312(b))
 
 **5. Lifecycle Policies (Cost & Data Management)**
-**Purpose:** Automated data retention and cost optimization
+**Purpose:** Automated data retention and cost optimisation
 
 **Implementation:**
 ```hcl
@@ -237,15 +237,15 @@ resource "aws_s3_bucket_lifecycle_configuration" "secure_bucket" {
 
 ```
 **Business Benefit:**
-60% reduction in storage costs
-Automated compliance with data retention policies
-Reduced attack surface (less old data)
+- 60% reduction in storage costs
+- Automated compliance with data retention policies
+- Reduced attack surface (less old data)
 
 **Cost Analysis:**
-|Storage | Class |	Cost/GB/Month	| Use Case |
+|Storage Class |	Cost/GB/Month	| Use Case |
 |--------|-------|----------------|----------|
 |S3 | Standard |	$0.023 |	Current data |
-|Glacier |	$0.004 |	Archived | versions | (30+ days)|
+|Glacier |	$0.004 |	Archived versions | (30+ days)|
 |Savings |	83%	|Old versions
 
  <br>
@@ -282,9 +282,9 @@ resource "aws_s3_bucket_policy" "secure_bucket" {
 ```
 
 **Security Benefit:** <br>
-TLS 1.2+ encryption for all data in transit
-Prevents credential theft over network
-Blocks HTTP requests (100% HTTPS requirement)
+- TLS 1.2+ encryption for all data in transit
+- Prevents credential theft over network
+- Blocks HTTP requests (100% HTTPS requirement)
  <br>
 **Compliance**: PCI-DSS (Requirement 4.1), SOC 2 (CC6.7)
 
