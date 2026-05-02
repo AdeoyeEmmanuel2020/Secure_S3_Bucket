@@ -534,7 +534,7 @@ log_bucket_name = "my-secure-bucket-emmanuel-20250120-logs"
 
 ----
 ## Real-World Scenarios & Troubleshooting
- **Scenario 1: Accidental File Deletion**
+ **Scenario 1: Accidental File Deletion** <br>
 **Challenge:**
 User accidentally deleted critical production configuration file.
 
@@ -559,9 +559,9 @@ aws s3api delete-object \
 # Object is now restored
 ```
 **Skills Demonstrated:**
-S3 versioning troubleshooting
-AWS CLI proficiency
-Incident response procedures
+- S3 versioning troubleshooting
+- AWS CLI proficiency
+- Incident response procedures
 **Key Learning:**
 Versioning saved 4 hours of manual reconfiguration and prevented production downtime.
 
@@ -592,9 +592,9 @@ aws s3api get-public-access-block \
 }
 ```
 **Skills Demonstrated:**
-Security monitoring
-Threat detection
-Understanding AWS security controls
+- Security monitoring
+- Threat detection
+- Understanding AWS security controls
 
 **Key Learning:**
 Defense-in-depth prevented security incident; multiple controls = resilience.
