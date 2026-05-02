@@ -245,9 +245,6 @@ resource "aws_s3_bucket_lifecycle_configuration" "secure_bucket" {
 |S3 | Standard |	$0.023 |	Current data |
 |Glacier |	$0.004 |	Archived versions | (30+ days)|
 |Savings |	83%	|Old versions
-
- <br>
- 
 **Compliance**: ISO 27001 (A.11.2.7 - Data disposal)
 
 **6. HTTPS Enforcement (Encryption in Transit)**
