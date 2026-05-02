@@ -450,10 +450,10 @@ terraform init
 
 ```
 **What happens:**
-Downloads AWS provider plugin (~50MB)
-Initializes backend configuration
-Creates .terraform/ directory
-Generates .terraform.lock.hcl (dependency lock file)
+- Downloads AWS provider plugin (~50MB)
+- Initialises backend configuration
+- Creates ```.terraform/``` directory
+- Generates ```.terraform.lock.hcl``` (dependency lock file)
 
 ```hcl
 Initializing the backend...
