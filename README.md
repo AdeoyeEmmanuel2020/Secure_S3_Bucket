@@ -806,37 +806,39 @@ aws support describe-trusted-advisor-checks
 |Audit Prep Time|	8 hours (manual log aggregation)|	30 minutes (automated logs)|	94% reduction|
 |Recovery Time (data loss)|	Hours-days (no versioning)|	< 5 minutes (versioning)|	99% faster|
 
- **ROI Analysis**
-**Initial Investment:**
-Architecture design: 8 hours
-Terraform development: 12 hours
-Testing & validation: 4 hours
-Total: 24 hours @ $75/hour = $1,800
+ **ROI Analysis** <br>
+**Initial Investment:** <br>
+- Architecture design: 8 hours
+- Terraform development: 12 hours
+- Testing & validation: 4 hours
+- Total: 24 hours @ $75/hour = $1,800
 
 **Annual Savings:**
-Reduced storage costs: $720/year
-Prevented breach cost (1% risk × $1M avg cost): $10,000/year
-Reduced operational overhead: $5,000/year
-Total Annual Savings: $15,720
-Payback Period: 1.4 months
+- Reduced storage costs: $720/year
+- Prevented breach cost (1% risk × $1M avg cost): $10,000/year
+- Reduced operational overhead: $5,000/year
+- **Total** Annual Savings: **$15,720**
 
-3-Year ROI: 2,520% ($45,160 savings / $1,800 investment)
+**Payback Period:** 1.4 months
+
+**3-Year ROI:** 2,520% ($45,160 savings / $1,800 investment)
 
  **Strategic Benefits**
+ 
 **Security Posture:**
-Zero data breach incidents since implementation
-100% compliance audit pass rate
-Reduced cyber insurance premiums by 15%
+- Zero data breach incidents since implementation
+- 100% compliance audit pass rate
+- Reduced cyber insurance premiums by 15%
 
 **Operational Efficiency:**
-Infrastructure deployment: Manual → automated
-Team onboarding: 2 days → 2 hours (IaC documentation)
-Multi-environment consistency (dev/staging/prod identical)
+- Infrastructure deployment: Manual → automated
+- Team onboarding: 2 days → 2 hours (IaC documentation)
+- Multi-environment consistency (dev/staging/prod identical)
 
 **Business Enablement:**
-Achieved SOC 2 Type II certification (required for enterprise deals)
-Reduced time-to-compliance for new customers from weeks to days
-Enabled a $2M+ enterprise contract previously blocked on security
+- Achieved SOC 2 Type II certification (required for enterprise deals)
+- Reduced time-to-compliance for new customers from weeks to days
+- Enabled a $2M+ enterprise contract previously blocked on security
 
 -------
 # Technical Leadership & Competencies
