@@ -493,7 +493,7 @@ Terraform will perform the following actions:
 
   # [6 more resources...]
 
-Plan: 8 to add, 0 to change, 0 to destroy.
+Plan: 9 to add, 0 to change, 0 to destroy.
 ```
 **Review checklist:**
  - 9 resources to be created
@@ -988,7 +988,7 @@ Video creation and presentation
 **Deployment Statistics**
 
 ```hcl
-Total Resources Created:     8
+Total Resources Created:     9
 Average Deployment Time:     47 seconds
 Terraform Configuration:     450+ lines
 Security Controls:           6 layers
