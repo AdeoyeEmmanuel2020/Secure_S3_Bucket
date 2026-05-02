@@ -1,6 +1,6 @@
 # Enterprise S3 Security Architecture
 
-> Production-ready S3 storage solution implementing AWS security best practices and defense-in-depth principles
+> Production-ready S3 storage solution implementing AWS security best practices and defence-in-depth principles
 
 [![Terraform](https://img.shields.io/badge/Terraform-1.0+-623CE4?logo=terraform)](https://www.terraform.io/)
 [![AWS](https://img.shields.io/badge/AWS-S3-FF9900?logo=amazonaws)](https://aws.amazon.com/s3/)
@@ -59,7 +59,7 @@ This project delivers a **production-ready S3 storage solution** addressing comm
 
 ## Business Challenge
 **The Problem** <br>
-**Context:** S3 misconfiguration is the leading cause of cloud data breaches, with over 70% of organizations experiencing at least one accidental data exposure incident.
+**Context:** S3 misconfiguration is the leading cause of cloud data breaches, with over 70% of organisations experiencing at least one accidental data exposure incident.
 
 **Real-World Impact:**
 - **Capital One (2019):** 100M customer records exposed via misconfigured S3 bucket
@@ -77,7 +77,7 @@ This project delivers a **production-ready S3 storage solution** addressing comm
 **Security:**
 - Prevent accidental public exposure
 - Encrypt all data (rest + transit)
-- Maintain complete audit trail
+- Maintain a complete audit trail
 - Enable data recovery (versioning)
 
 **Compliance:**
@@ -88,8 +88,8 @@ This project delivers a **production-ready S3 storage solution** addressing comm
 
 **Operations:**
 - Automated deployment (no manual configuration)
-- Infrastructure as code (version controlled)
-- Cost optimization through lifecycle management
+- Infrastructure as code (version-controlled)
+- Cost optimisation through lifecycle management
 - Repeatable across environments
 
 ---
@@ -121,7 +121,7 @@ resource "aws_s3_bucket_public_access_block" "secure_bucket" {
 
 **Security Benefit:** <br>
 - Prevents 100% of accidental public exposure incidents
-- Overrides user/application attempts to make bucket public
+- Overrides user/application attempts to make the bucket public
 - AWS-recommended baseline for all non-public buckets. <br>
 **Compliance**: SOC 2 (CC6.1), ISO 27001 (A.13.1.3)
 
@@ -150,8 +150,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "secure_bucket" {
 - Automatic key rotation (AWS-managed). 
 
 **Technical Details:**
-- Encryption happens before data written to disk
-- Each object encrypted with unique data key
+- Encryption happens before data is written to disk
+- Each object is encrypted with a unique data key
 - Data keys encrypted with master key
 - Keys never stored unencrypted <br>
 **Compliance**: HIPAA (§164.312(a)(2)(iv)), PCI-DSS (Requirement 3.4), SOC 2 (CC6.7)
@@ -178,7 +178,7 @@ resource "aws_s3_bucket_versioning" "secure_bucket" {
 - Ransomware attack: Restore to pre-infection state
 - Accidental deletion: Recover deleted objects
 - Audit requirements: Show data change history <br>
-**Compliance**: SOC 2 (CC7.1), ISO 27001 (A.12.3.1)
+
 
 **4. Access Logging (Detective Control)**
 **Purpose:** Complete audit trail for security investigation and compliance
@@ -241,7 +241,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "secure_bucket" {
 
 **Cost Analysis:**
 |Storage Class |	Cost/GB/Month	| Use Case |
-|--------|-------|----------------|----------|
+|--------|-------|----------------|
 |S3 | Standard |	$0.023 |	Current data |
 |Glacier |	$0.004 |	Archived versions | (30+ days)|
 |Savings |	83%	|Old versions
