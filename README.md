@@ -905,45 +905,9 @@ Solution Architecture Competencies Demonstrated <br>
 - No manual security configuration
 - Self-service deployment
 
------
-# Project Artefacts
-Architecture Deliverables
-**Documentation:**
-Complete README (this file)
-Architecture Diagram
-Video Walkthrough (10 min)
-Decision Log (ADRs)
-
-**Infrastructure Code:**
-provider.tf - AWS provider configuration
-variables.tf - Input parameters
-main.tf - Core infrastructure (fully commented)
-outputs.tf - Resource outputs
-
-Testing & Validation:
-Terraform validation passed
-Security scanning clean (tfsec)
-Manual testing completed
-Compliance mapping verified
-
-**Knowledge Transfer:**
-Video demonstration
-Troubleshooting guide
-Real-world scenarios documented
-Team training materials
-
-**Code Quality Metrics**
-|Metric|	Value	|Industry Standard|
-|------|--------|-----------------|
-|Lines of Code|	450+|	- |
-|Comments Ratio|	40% |	>20% |
-|Terraform Modules	|1 (self-contained)|	- |
-|Security Controls |	6	3-5 |typical|
-|Documentation Coverage|	100%	|>80%|
-|Test Coverage	Manual| (6 scenarios)	|-|
-
 ------
 # Key Learnings & Insights
+
 **Technical Insight**
 **1. Defense-in-Depth is Non-Negotiable** <br>
 Single security control = single point of failure. This architecture proved that multiple overlapping controls caught configuration errors and prevented incidents that would have bypassed any single control. <br>
@@ -967,33 +931,34 @@ Storing logs in the same bucket as data creates circular dependencies and compli
 
 **Architecture Lessons**
 **What Worked Well:**
-Terraform modular design (easy to reuse across environments)
-Comprehensive documentation (reduced questions from 20+ to < 5)
-Video demonstration (visual learners understood faster)
-Real-world scenarios (helped team understand "why" not just "what")
+- Terraform modular design (easy to reuse across environments)
+- Comprehensive documentation (reduced questions from 20+ to < 5)
+- Video demonstration (visual learners understood faster)
+- Real-world scenarios (helped team understand "why" not just "what")
 
 **What Could Be Improved:**
-Add automated testing (currently manual)
-Create a Terraform module for reusability across projects
-Add monitoring alerts (CloudWatch alarms for bucket access)
-Document the cost tracking strategy more thoroughly
+- Add automated testing (currently manual)
+- Create a Terraform module for reusability across projects
+- Add monitoring alerts (CloudWatch alarms for bucket access)
+- Document the cost tracking strategy more thoroughly
 
 **Future Enhancements:**
-Add the KMS customer-managed keys option
-Implement cross-region replication for disaster recovery
-Add S3 Intelligent-Tiering for automatic cost optimisation
-Create Terraform modules for each component
-Professional Growth
+- Add the KMS customer-managed keys option
+- Implement cross-region replication for disaster recovery
+- Add S3 Intelligent-Tiering for automatic cost optimisation
+- Create Terraform modules for each component
+- Professional Growth
 
 **Skills Developed:**
-Advanced Terraform (meta-arguments, data sources, locals)
-AWS security services deep-dive
-Technical documentation writing
-Architecture decision recording (ADRs)
-Video creation and presentation
+- Advanced Terraform (meta-arguments, data sources, locals)
+- AWS security services deep-dive
+- Technical documentation writing
+- Architecture decision recording (ADRs)
+- Video creation and presentation
 
 ------
 # Implementation Metrics
+
 **Deployment Statistics**
 
 ```hcl
