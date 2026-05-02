@@ -562,7 +562,8 @@ aws s3api delete-object \
 - S3 versioning troubleshooting
 - AWS CLI proficiency
 - Incident response procedures
-**Key Learning:**
+  
+**Key Learning:** <br>
 Versioning saved 4 hours of manual reconfiguration and prevented production downtime.
 
  **Scenario 2: Attempted Unauthorized Public Access** <br>
@@ -596,12 +597,13 @@ aws s3api get-public-access-block \
 - Threat detection
 - Understanding AWS security controls
 
-**Key Learning:**
-Defense-in-depth prevented security incident; multiple controls = resilience.
+**Key Learning:** <br>
+Defence-in-depth prevented a security incident; multiple controls = resilience.
 
  **Scenario 3: Cost Spike Investigation**
+ 
 **Challenge:**
-Monthly S3 bill increased 40% month-over-month.
+The monthly S3 bill increased 40% month-over-month.
 
 **Diagnostic Process:**
 ```hcl
@@ -638,12 +640,13 @@ Cost reduced by 35% within 60 days as old versions transitioned to Glacier.
 - Cost optimization
 - AWS billing analysis
 - Infrastructure debugging <br>
+
 **Key Learning:**
 Always validate lifecycle policies with test objects before production deployment.
 
 **Scenario 4: Compliance Audit Request**
 **Challenge**:
-SOC 2 auditor requested evidence of access logging for past 90 days.
+SOC 2 auditor requested evidence of access logging for the past 90 days.
 
 **Diagnostic Process:**
 ```hcl
@@ -654,7 +657,7 @@ aws s3api get-bucket-logging \
 # 2. List log files
 aws s3 ls s3://my-secure-bucket-prod-logs/access-logs/ --recursive
 
-# 3. Download sample log for verification
+# 3. Download the sample log for verification
 aws s3 cp s3://my-secure-bucket-prod-logs/access-logs/2024-01-15-log.txt .
 ```
 **Resolution Steps:**
@@ -664,7 +667,7 @@ cat access-logs/*.txt | \
   awk '{print $3,$7,$8}' | \
   sort | uniq -c > access_summary.txt
 
-# 2. Provide to auditor with explanation
+# 2. Provide the auditor with an explanation
 ```
 **Evidence Provided:**
 
@@ -677,12 +680,13 @@ Audit Result: Passed (no findings)
 - Compliance knowledge
 - Log analysis
 - Auditor communication <br>
+
 **Key Learning:**
-Separate log bucket simplified audit process; auditor could verify logs were tamper-proof.
+Separate log bucket simplified audit process; the auditor could verify logs were tamper-proof.
 
  **Scenario 5: Terraform State Corruption**
 **Challenge:**
-terraform apply failed with state lock error after teammate's interrupted deployment.
+Terraform apply failed with a state lock error after a teammate's interrupted deployment.
 
 **Error Message:**
 ```hcl
@@ -730,7 +734,7 @@ Implemented CI/CD pipeline for production deployments
 Remote state with locking prevents 99% of state conflicts in team environments.
 
 ----
-## Validation & Testing
+# Validation & Testing
 Architecture Review Checklist
 **Security Validation:**
 All six security controls enabled and verified
