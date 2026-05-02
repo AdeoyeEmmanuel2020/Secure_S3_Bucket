@@ -310,7 +310,9 @@ resource "aws_s3_bucket_policy" "secure_bucket" {
 ----
 # Key Architecture Decisions <br>
 **Decision Log**  <br>
+
 **Decision 1: Separate Log Bucket** <br>
+
 **Context**: Where to store S3 access logs?
 
 **Options Considered:**
