@@ -9,7 +9,7 @@
 
 ---
 
-## Full Architecture Walkthrough & Production Deployment  
+# Full Architecture Walkthrough & Production Deployment  
 
 **Click the image below to watch the complete implementation on YouTube:**
 
@@ -22,7 +22,7 @@
 
 ---
 
-## Table of Contents
+# Table of Contents
 
 - [Executive Summary](#executive-summary)
 - [Business Challenge](#business-challenge)
@@ -42,7 +42,7 @@
 
 ---
 
-## Executive Summary
+# Executive Summary
 This project delivers a **production-ready S3 storage solution** addressing common cloud security vulnerabilities that have led to high-profile data breaches. The architecture implements **six defensive security layers** using infrastructure as code, ensuring consistency, auditability, and compliance with industry frameworks (SOC 2, HIPAA, PCI-DSS, ISO 27001).
 
 **Quick Stats**
@@ -57,7 +57,7 @@ This project delivers a **production-ready S3 storage solution** addressing comm
 
 ---
 
-## Business Challenge
+# Business Challenge
 **The Problem** <br>
 **Context:** S3 misconfiguration is the leading cause of cloud data breaches, with over 70% of organisations experiencing at least one accidental data exposure incident.
 
@@ -94,14 +94,14 @@ This project delivers a **production-ready S3 storage solution** addressing comm
 
 ---
 
-## Solution Architecture
+# Solution Architecture
  **High-Level Architecture**
 **Architecture Overview**
 <img width="700" height="400" alt="Architecture diagram" src="https://github.com/user-attachments/assets/cf254315-49b6-400c-a2fa-9a41269f7f1b" />
 
 ---
 
-## Security Features
+# Security Features
 **Defense-in-Depth Architecture**
 
 **1. Public Access Blocking (Preventive Control)**
@@ -283,7 +283,7 @@ resource "aws_s3_bucket_policy" "secure_bucket" {
 **Compliance**: PCI-DSS (Requirement 4.1), SOC 2 (CC6.7)
 
 -----
-## Technical Stack
+# Technical Stack
 **Infrastructure as Code**
 |Component | Technology |	Version	| Purpose|
 |----------|------------|--------- | -------|
@@ -533,8 +533,9 @@ log_bucket_name = "my-secure-bucket-emmanuel-20250120-logs"
 5. **Management tab:** Verify lifecycle rules
 
 ----
-## Real-World Scenarios & Troubleshooting
+# Real-World Scenarios & Troubleshooting
  **Scenario 1: Accidental File Deletion** <br>
+ 
 **Challenge:**
 User accidentally deleted a critical production configuration file.
 
@@ -567,6 +568,7 @@ aws s3api delete-object \
 Versioning saved 4 hours of manual reconfiguration and prevented production downtime.
 
  **Scenario 2: Attempted Unauthorised Public Access** <br>
+ 
 **Challenge:** <br>
 Security scan detected an attempt to make the bucket public via the bucket policy.
 
@@ -645,6 +647,7 @@ Cost reduced by 35% within 60 days as old versions transitioned to Glacier.
 Always validate lifecycle policies with test objects before production deployment.
 
 **Scenario 4: Compliance Audit Request** <br>
+
 **Challenge**:
 SOC 2 auditor requested evidence of access logging for the past 90 days.
 
@@ -788,7 +791,7 @@ aws support describe-trusted-advisor-checks
 # S3 Bucket Permissions check:  PASS
 ```
 ----
-### Business Value Delivered
+# Business Value Delivered
 **Quantified Impac**t
 |Metric|	Before|	After|	Improvement|
 |------|--------|------|-------------|
@@ -832,7 +835,7 @@ Reduced time-to-compliance for new customers from weeks to days
 Enabled a $2M+ enterprise contract previously blocked on security
 
 -------
-## Technical Leadership & Competencies
+# Technical Leadership & Competencies
 Solution Architecture Competencies Demonstrated <br>
 
 **1. Security Architecture Design**
@@ -897,7 +900,7 @@ No manual security configuration
 Self-service deployment
 
 -----
-## Project Artefacts
+# Project Artefacts
 Architecture Deliverables
 **Documentation:**
 Complete README (this file)
@@ -934,7 +937,7 @@ Team training materials
 |Test Coverage	Manual| (6 scenarios)	|-|
 
 ------
-## Key Learnings & Insights
+# Key Learnings & Insights
 **Technical Insight**
 **1. Defense-in-Depth is Non-Negotiable** <br>
 Single security control = single point of failure. This architecture proved that multiple overlapping controls caught configuration errors and prevented incidents that would have bypassed any single control. <br>
@@ -984,7 +987,7 @@ Architecture decision recording (ADRs)
 Video creation and presentation
 
 ------
-## Implementation Metrics
+# Implementation Metrics
 **Deployment Statistics**
 
 ```hcl
