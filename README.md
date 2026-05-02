@@ -845,65 +845,65 @@ aws support describe-trusted-advisor-checks
 Solution Architecture Competencies Demonstrated <br>
 
 **1. Security Architecture Design**
-Defence-in-depth principle application
-Threat modelling and risk mitigation
-Compliance framework mapping (4 frameworks)
-Security control selection and justification
+- Defence-in-depth principle application
+- Threat modelling and risk mitigation
+- Compliance framework mapping (4 frameworks)
+- Security control selection and justification
 
 **2. Infrastructure as Code (IaC) Expertise**
-Terraform advanced patterns
-Modular, reusable configuration
-State management best practices
-Version control integration
+- Terraform advanced patterns
+- Modular, reusable configuration
+- State management best practices
+- Version control integration
 
 **3. AWS Cloud Architecture**
-S3 advanced configuration
-IAM policy design
-Multi-service integration
-Cost optimization strategies
+- S3 advanced configuration
+- IAM policy design
+- Multi-service integration
+- Cost optimization strategies
 
 **4. System Design & Documentation**
-Architecture diagram creation
-Decision documentation (ADRs)
-Comprehensive README standards
-Runbook development
+- Architecture diagram creation
+- Decision documentation (ADRs)
+- Comprehensive README standards
+- Runbook development
 
 **5. Problem-Solving & Troubleshooting**
-Systematic diagnostic approach
-Root cause analysis
-Resolution documentation
-Knowledge transfer
+- Systematic diagnostic approach
+- Root cause analysis
+- Resolution documentation
+- Knowledge transfer
 
 **6. Business Acumen**
-Cost-benefit analysis
-ROI calculation
-Stakeholder communication
-Compliance requirements translation
-Architecture Value Proposition
-
+- Cost-benefit analysis
+- ROI calculation
+- Stakeholder communication
+- Compliance requirements translation
+  
+ **Architecture Value Proposition**
 **For Security Teams:**
-Production-ready security baseline
-Compliance framework pre-mapping
-Audit-ready documentation
-Incident response capabilities (versioning, logging)
+- Production-ready security baseline
+- Compliance framework pre-mapping
+- Audit-ready documentation
+- Incident response capabilities (versioning, logging)
 
 **For DevOps Teams:**
-Fully automated deployment (< 2 min)
-Infrastructure as code (version-controlled)
-Multi-environment replication
-Zero-touch operations
+- Fully automated deployment (< 2 min)
+- Infrastructure as code (version-controlled)
+- Multi-environment replication
+- Zero-touch operations
 
 **For Business Stakeholders:**
-60% cost reduction (storage)
-95% risk reduction (breach prevention)
-Compliance enablement (SOC 2, HIPAA, PCI-DSS, ISO 27001)
-$15K+ annual savings
+- 60% cost reduction (storage)
+- 95% risk reduction (breach prevention)
+- Compliance enablement (SOC 2, HIPAA, PCI-DSS, ISO 27001)
+- $15K+ annual savings
 
 **For Development Teams:**
-Consistent storage patterns
-Automated backup/recovery (versioning)
-No manual security configuration
-Self-service deployment
+- Consistent storage patterns
+- Automated backup/recovery (versioning)
+- No manual security configuration
+- Self-service deployment
 
 -----
 # Project Artefacts
