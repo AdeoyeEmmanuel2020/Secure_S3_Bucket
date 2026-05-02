@@ -206,8 +206,7 @@ resource "aws_s3_bucket_logging" "secure_bucket" {
 - Detect unauthorised access attempts
 - Forensic investigation capabilities
 - Compliance audit evidence
-- Anomaly detection (unusual access patterns)
- <br>
+- Anomaly detection (unusual access patterns) <br>
   **Compliance**: SOC 2 (CC7.2), PCI-DSS (Requirement 10), HIPAA (§164.312(b))
 
 **5. Lifecycle Policies (Cost & Data Management)**
