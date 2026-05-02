@@ -525,12 +525,12 @@ bucket_name = "my-secure-bucket-emmanuel-20250120"
 bucket_region = "us-east-1"
 log_bucket_name = "my-secure-bucket-emmanuel-20250120-logs"
 ```
-**Step 7: Verify in AWS Console**
-Navigate to AWS S3 Console
-Locate your bucket
-**Properties tab:** Verify encryption, versioning
-**Permissions tab:** Verify public access block
-**Management tab:** Verify lifecycle rules
+**Step 7: Verify in AWS Console** <br>
+1. Navigate to AWS S3 Console
+2. Locate your bucket
+3. **Properties tab:** Verify encryption, versioning
+4. **Permissions tab:** Verify public access block
+5. **Management tab:** Verify lifecycle rules
 
 ----
 ## Real-World Scenarios & Troubleshooting
