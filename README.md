@@ -496,17 +496,17 @@ Terraform will perform the following actions:
 Plan: 8 to add, 0 to change, 0 to destroy.
 ```
 **Review checklist:**
- 9 resources to be created
- No existing resources destroyed
- Bucket names are unique
- Region is correct
+ - 9 resources to be created
+ - No existing resources destroyed
+ - Bucket names are unique
+ - Region is correct
 
 **Step 6: Deploy Infrastructure**
 
 ```hcl
 terraform apply
 ```
-Type **yes** when prompted.
+Type ```yes``` when prompted.
 
 **Deployment time:** ~45-60 seconds
 
