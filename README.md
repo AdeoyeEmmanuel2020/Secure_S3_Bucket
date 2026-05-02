@@ -391,13 +391,13 @@ resource "aws_s3_bucket_policy" "secure_bucket" {
 
 -----
 # Implementation Guide
-**Prerequisites**
+**Prerequisites** <br>
 
 **Required:**
-AWS Account with S3 full access
-Terraform >= 1.0 installed
-AWS CLI configured
-Basic understanding of S3 and Terraform
+- AWS Account with S3 full access
+- Terraform >= 1.0 installed
+- AWS CLI configured
+- Basic understanding of S3 and Terraform
 
 **Verification:**
 ```hcl
