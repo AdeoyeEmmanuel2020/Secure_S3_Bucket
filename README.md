@@ -178,6 +178,7 @@ resource "aws_s3_bucket_versioning" "secure_bucket" {
 - Ransomware attack: Restore to pre-infection state
 - Accidental deletion: Recover deleted objects
 - Audit requirements: Show data change history <br>
+**Compliance:** SOC 2 (CC7.1), ISO 27001 (A.12.3.1)
 
 
 **4. Access Logging (Detective Control)**
