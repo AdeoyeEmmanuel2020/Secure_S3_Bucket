@@ -300,11 +300,11 @@ resource "aws_s3_bucket_policy" "secure_bucket" {
 | KMS	| Encryption keys |	AWS-managed (optional: CMK)|
 | CloudWatch |	Monitoring |	Access logs integration |
 
-**Development Tools**
-IDE: VS Code with Terraform extension
-Version Control: Git + GitHub
-Testing: Terraform validate, plan
-Documentation: Markdown, architecture diagrams
+**Development Tools** <br>
+- **IDE:** VS Code with Terraform extension
+- **Version Control:** Git + GitHub
+- **Testing:** Terraform validate, plan
+- **Documentation:** Markdown, architecture diagrams
 
 ----
 ## Key Architecture Decisions
