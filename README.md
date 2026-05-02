@@ -278,7 +278,7 @@ resource "aws_s3_bucket_policy" "secure_bucket" {
 
 **Security Benefit:** <br>
 - TLS 1.2+ encryption for all data in transit
-- Prevents credential theft over network
+- Prevents credential theft over the network
 - Blocks HTTP requests (100% HTTPS requirement) <br>
 **Compliance**: PCI-DSS (Requirement 4.1), SOC 2 (CC6.7)
 
@@ -347,7 +347,7 @@ resource "aws_s3_bucket_policy" "secure_bucket" {
 **Trade-offs:**
 - Simple, automatic
 - No cost for encryption
-- Less control over key rotation schedule
+- Less control over the key rotation schedule
 - Can't use for cross-account access
 
 **Future Consideration:** Upgrade to KMS for:
@@ -444,21 +444,21 @@ variable "bucket_name" {
 }
 
 ```
- **Step 3: Initialize Terraform**
+ **Step 3: Initialise Terraform**
 ```hcl
 terraform init
 
 ```
 **What happens:**
 - Downloads AWS provider plugin (~50MB)
-- Initialises backend configuration
+- Initializes backend configuration
 - Creates ```.terraform/``` directory
 - Generates ```.terraform.lock.hcl``` (dependency lock file)
 
 ```hcl
 Initializing the backend...
 Initializing provider plugins...
-- Finding hashicorp/aws versions matching "~> 5.0"...
+- Finding Hashicorp/aws versions matching "~> 5.0"...
 - Installing hashicorp/aws v5.x.x...
 
 Terraform has been successfully initialized!
@@ -536,7 +536,7 @@ log_bucket_name = "my-secure-bucket-emmanuel-20250120-logs"
 ## Real-World Scenarios & Troubleshooting
  **Scenario 1: Accidental File Deletion** <br>
 **Challenge:**
-User accidentally deleted critical production configuration file.
+User accidentally deleted a critical production configuration file.
 
 **Diagnostic Process:**
 ```hcl
@@ -545,12 +545,12 @@ aws s3api list-object-versions \
   --bucket my-secure-bucket-prod \
   --prefix config/production.yaml
 
-# 2. Identify latest version before deletion
+# 2. Identify the latest version before deletion
 # Output shows VersionId and DeleteMarker
 ```
 **Resolution Steps:**
 ```hcl
-# 3. Restore the object by removing delete marker
+# 3. Restore the object by removing the delete marker
 aws s3api delete-object \
   --bucket my-secure-bucket-prod \
   --key config/production.yaml \
@@ -566,9 +566,9 @@ aws s3api delete-object \
 **Key Learning:** <br>
 Versioning saved 4 hours of manual reconfiguration and prevented production downtime.
 
- **Scenario 2: Attempted Unauthorized Public Access** <br>
+ **Scenario 2: Attempted Unauthorised Public Access** <br>
 **Challenge:** <br>
-Security scan detected attempt to make bucket public via bucket policy.
+Security scan detected an attempt to make the bucket public via the bucket policy.
 
 **Diagnostic Process:**
 ```hcl
@@ -576,7 +576,7 @@ Security scan detected attempt to make bucket public via bucket policy.
 aws cloudtrail lookup-events \
   --lookup-attributes AttributeKey=ResourceName,AttributeValue=my-secure-bucket-prod
 
-# 2. Check current public access block configuration
+# 2. Check the current public access block configuration
 aws s3api get-public-access-block \
   --bucket my-secure-bucket-prod
 ```
@@ -607,12 +607,12 @@ The monthly S3 bill increased 40% month-over-month.
 
 **Diagnostic Process:**
 ```hcl
-# 1. Analyze storage breakdown by storage class
+# 1. Analyse storage breakdown by storage class
 aws s3api list-objects-v2 \
   --bucket my-secure-bucket-prod \
   --query 'Contents[].{Key:Key,Size:Size,StorageClass:StorageClass}'
 
-# 2. Check lifecycle policy is active
+# 2. Check the lifecycle policy is active
 aws s3api get-bucket-lifecycle-configuration \
   --bucket my-secure-bucket-prod
 ```
@@ -631,7 +631,7 @@ Lifecycle policy not transitioning old versions to Glacier (misconfigured rule).
 terraform apply
 
 # 4. Verify transition starts
-# Monitor via AWS Cost Explorer over next 30 days
+# Monitor via AWS Cost Explorer over the next 30 days
 ```
 **Outcome:**
 Cost reduced by 35% within 60 days as old versions transitioned to Glacier.
@@ -644,7 +644,7 @@ Cost reduced by 35% within 60 days as old versions transitioned to Glacier.
 **Key Learning:**
 Always validate lifecycle policies with test objects before production deployment.
 
-**Scenario 4: Compliance Audit Request**
+**Scenario 4: Compliance Audit Request** <br>
 **Challenge**:
 SOC 2 auditor requested evidence of access logging for the past 90 days.
 
@@ -670,11 +670,10 @@ cat access-logs/*.txt | \
 # 2. Provide the auditor with an explanation
 ```
 **Evidence Provided:**
-
-Complete 90-day access log archive
-Summary showing: requester, timestamp, action, status
-Terraform code demonstrating logging configuration
-Audit Result: Passed (no findings)
+- Complete 90-day access log archive
+- Summary showing: requester, timestamp, action, status
+- Terraform code demonstrating logging configuration
+**Audit Result:** Passed (no findings)
 
 **Skills Demonstrated:**
 - Compliance knowledge
@@ -684,7 +683,8 @@ Audit Result: Passed (no findings)
 **Key Learning:**
 Separate log bucket simplified audit process; the auditor could verify logs were tamper-proof.
 
- **Scenario 5: Terraform State Corruption**
+ **Scenario 5: Terraform State Corruption** <br>
+ 
 **Challenge:**
 Terraform apply failed with a state lock error after a teammate's interrupted deployment.
 
@@ -721,9 +721,9 @@ terraform apply
 # 3. Document the incident to prevent future occurrences
 ```
 **Preventive Measures Implemented:**
-Enabled S3 backend with DynamoDB locking for state
-Established team convention: announce Terraform runs in Slack
-Implemented CI/CD pipeline for production deployments
+- Enabled S3 backend with DynamoDB locking for state
+- Established team convention: announce Terraform runs in Slack
+- Implemented CI/CD pipeline for production deployments
 
 **Skills Demonstrated:**
 - Terraform state management
@@ -737,11 +737,11 @@ Remote state with locking prevents 99% of state conflicts in team environments.
 # Validation & Testing
 Architecture Review Checklist
 **Security Validation:**
-All six security controls enabled and verified
+All six security controls are enabled and verified
 Public access blocked (tested via AWS CLI)
 Encryption at rest confirmed (console + API)
 Versioning enabled (tested with object upload/delete)
-Access logs generating successfully
+Access logs are generating successfully
 Lifecycle policy active (verified rule status)
 HTTPS enforcement working (HTTP request denied)
 
@@ -773,11 +773,11 @@ ISO 27001 information security controls implemented
 **Infrastructure Security:**
  ```hcl
 # Scan Terraform code with tfsec
-tfsec .
+tfsec.
 
 # Results:
 #  0 critical issues
-#  0 high severity issues
+#  0 high-severity issues
 #  0 medium severity issues
 ```
 **AWS Security Best Practices:**
@@ -829,15 +829,15 @@ Multi-environment consistency (dev/staging/prod identical)
 **Business Enablement:**
 Achieved SOC 2 Type II certification (required for enterprise deals)
 Reduced time-to-compliance for new customers from weeks to days
-Enabled $2M+ enterprise contract previously blocked on security
+Enabled a $2M+ enterprise contract previously blocked on security
 
 -------
 ## Technical Leadership & Competencies
 Solution Architecture Competencies Demonstrated <br>
 
 **1. Security Architecture Design**
-Defense-in-depth principle application
-Threat modeling and risk mitigation
+Defence-in-depth principle application
+Threat modelling and risk mitigation
 Compliance framework mapping (4 frameworks)
 Security control selection and justification
 
@@ -880,7 +880,7 @@ Incident response capabilities (versioning, logging)
 
 **For DevOps Teams:**
 Fully automated deployment (< 2 min)
-Infrastructure as code (version controlled)
+Infrastructure as code (version-controlled)
 Multi-environment replication
 Zero-touch operations
 
@@ -897,7 +897,7 @@ No manual security configuration
 Self-service deployment
 
 -----
-## Project Artifacts
+## Project Artefacts
 Architecture Deliverables
 **Documentation:**
 Complete README (this file)
@@ -938,22 +938,22 @@ Team training materials
 **Technical Insight**
 **1. Defense-in-Depth is Non-Negotiable** <br>
 Single security control = single point of failure. This architecture proved that multiple overlapping controls caught configuration errors and prevented incidents that would have bypassed any single control. <br>
-**Example:** During testing, attempted to make bucket public via ACL (accidentally). Public access block prevented it, even though bucket policy would have allowed.
+**Example:** During testing, attempted to make the bucket public via ACL (accidentally). Public access block prevented it, even though the bucket policy would have allowed it.
 
 **2. Infrastructure as Code Transforms Operations** <br>
-Manual S3 configuration took 2-3 hours with 15-20% error rate. Terraform reduced this to < 2 minutes with 0% errors. More importantly: configuration became reviewable, testable, version-controlled. <br>
-**Lesson:** Time investment in IaC pays back within first week of use.
+Manual S3 configuration took 2-3 hours with a 15-20% error rate. Terraform reduced this to < 2 minutes with 0% errors. More importantly, configuration became reviewable, testable, and version-controlled. <br>
+**Lesson:** Time investment in IaC pays back within the first week of use.
 
 **3. Compliance Requires Proactive Design** <br>
-Attempting to retrofit security controls for compliance is 10x harder than designing them in from day one. Mapping controls to frameworks (SOC 2, HIPAA, etc.) during architecture phase saved weeks during audit. <br>
+Attempting to retrofit security controls for compliance is 10x harder than designing them in from day one. Mapping controls to frameworks (SOC 2, HIPAA, etc.) during the architecture phase saved weeks during the audit. <br>
 **Lesson:** Know your compliance requirements before writing the first line of code.
 
 **4. Lifecycle Policies are Often Overlooked** <br>
-60% cost reduction came purely from lifecycle management—a feature many organizations forget to implement. Old data accumulates silently, driving costs up month after month. <br>
-**Lesson:** Cost optimization should be part of initial architecture, not a later "cleanup" project.
+60% cost reduction came purely from lifecycle management—a feature many organisations forget to implement. Old data accumulates silently, driving costs up month after month. <br>
+**Lesson:** Cost optimisation should be part of initial architecture, not a later "cleanup" project.
 
 **5. Separate Log Buckets Simplify Compliance** <br>
-Storing logs in the same bucket as data creates circular dependencies and complicates access control. Separate bucket meant auditors could access logs without seeing production data. <br>
+Storing logs in the same bucket as data creates circular dependencies and complicates access control. A separate bucket meant auditors could access logs without seeing production data. <br>
 **Lesson:** Audit data isolation = faster audits and better security.
 
 **Architecture Lessons**
@@ -965,14 +965,14 @@ Real-world scenarios (helped team understand "why" not just "what")
 
 **What Could Be Improved:**
 Add automated testing (currently manual)
-Create Terraform module for reusability across projects
+Create a Terraform module for reusability across projects
 Add monitoring alerts (CloudWatch alarms for bucket access)
-Document cost tracking strategy more thoroughly
+Document the cost tracking strategy more thoroughly
 
 **Future Enhancements:**
-Add KMS customer-managed keys option
+Add the KMS customer-managed keys option
 Implement cross-region replication for disaster recovery
-Add S3 Intelligent-Tiering for automatic cost optimization
+Add S3 Intelligent-Tiering for automatic cost optimisation
 Create Terraform modules for each component
 Professional Growth
 
@@ -1005,7 +1005,7 @@ Copyright (c) 2025 [Adeoye Emmanuel Eniola]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
+in the Software without restriction, including, without limitation, the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
