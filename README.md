@@ -282,8 +282,7 @@ resource "aws_s3_bucket_policy" "secure_bucket" {
 **Security Benefit:** <br>
 - TLS 1.2+ encryption for all data in transit
 - Prevents credential theft over network
-- Blocks HTTP requests (100% HTTPS requirement)
- <br>
+- Blocks HTTP requests (100% HTTPS requirement) <br>
 **Compliance**: PCI-DSS (Requirement 4.1), SOC 2 (CC6.7)
 
 -----
