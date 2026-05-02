@@ -58,7 +58,7 @@ This project delivers a **production-ready S3 storage solution** addressing comm
 ---
 
 ## Business Challenge
-**The Problem**
+**The Problem** <br>
 **Context:** S3 misconfiguration is the leading cause of cloud data breaches, with over 70% of organizations experiencing at least one accidental data exposure incident.
 
 **Real-World Impact:**
@@ -144,10 +144,16 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "secure_bucket" {
 ```
 
 **Security Benefit:** <br>
-Military-grade AES-256 encryption
-Transparent encryption/decryption (no performance impact)
-Protection against physical server theft/decommissioning
-Automatic key rotation (AWS-managed). <br>
+- Military-grade AES-256 encryption
+- Transparent encryption/decryption (no performance impact)
+- Protection against physical server theft/decommissioning
+- Automatic key rotation (AWS-managed). 
+
+**Technical Details:**
+- Encryption happens before data written to disk
+- Each object encrypted with unique data key
+- Data keys encrypted with master key
+- Keys never stored unencrypted <br>
 **Compliance**: HIPAA (§164.312(a)(2)(iv)), PCI-DSS (Requirement 3.4), SOC 2 (CC6.7)
 
 **3. Versioning (Data Integrity & Recovery)**
@@ -164,10 +170,15 @@ resource "aws_s3_bucket_versioning" "secure_bucket" {
 
 ```
 **Security Benefit:** <br>
-Complete version history of all objects
-Rollback capability (undo deletions/modifications)
-Ransomware protection (restore pre-encryption versions)
-Accidental deletion recovery
+- Complete version history of all objects
+- Rollback capability (undo deletions/modifications)
+- Ransomware protection (restore pre-encryption versions)
+- Accidental deletion recovery
+  
+ **Use Cases:**
+- Ransomware attack: Restore to pre-infection state
+- Accidental deletion: Recover deleted objects
+- Audit requirements: Show data change history
  <br>
 **Compliance**: SOC 2 (CC7.1), ISO 27001 (A.12.3.1)
 
@@ -184,19 +195,19 @@ resource "aws_s3_bucket_logging" "secure_bucket" {
 
 ```
 **Logged Information:** <br>
-Requester AWS account/IAM identity
-Bucket name and requested object key
-Request timestamp (UTC)
-Remote IP address
-HTTP status code
-Error code (if applicable)
-Bytes sent
+- Requester AWS account/IAM identity
+- Bucket name and requested object key
+- Request timestamp (UTC)
+- Remote IP address
+- HTTP status code
+- Error code (if applicable)
+- Bytes sent
 
 **Security Benefit:** <br>
-Detect unauthorised access attempts
-Forensic investigation capabilities
-Compliance audit evidence
-Anomaly detection (unusual access patterns)
+- Detect unauthorised access attempts
+- Forensic investigation capabilities
+- Compliance audit evidence
+- Anomaly detection (unusual access patterns)
  <br>
 **Compliance**: SOC 2 (CC7.2), PCI-DSS (Requirement 10), HIPAA (§164.312(b))
 
