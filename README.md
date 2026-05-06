@@ -969,6 +969,8 @@ Security Controls:           6 layers
 Compliance Frameworks:       4 (SOC 2, HIPAA, PCI-DSS, ISO 27001)
 Cost (monthly):              $0.50 - $2.00 (within free tier for testing)
 ```
+------
+
 # License
 This project is licensed under the MIT License
 ```bash
